@@ -138,8 +138,7 @@ internal class Program
         return products;
     }
 
-    private static void PrintSpecialProductsSortedByEntryDate(
-        List<Product> products)
+    private static void PrintSpecialProductsSortedByEntryDate(List<Product> products)
     {
         var specialProducts = new List<Product>();
 
@@ -155,9 +154,7 @@ internal class Program
         PrintProducts(specialProducts);
     }
 
-    private static void PrintProductsByCode(
-        List<Product> products,
-        string code)
+    private static void PrintProductsByCode(List<Product> products, string code)
     {
         var filteredProducts = new List<Product>();
         var totalQuantityInKg = 0;
@@ -165,10 +162,7 @@ internal class Program
 
         foreach (var product in products)
         {
-            if (!string.Equals(
-                    product.Code,
-                    code,
-                    StringComparison.Ordinal))
+            if (!string.Equals(product.Code, code, StringComparison.Ordinal))
             {
                 continue;
             }
@@ -176,12 +170,10 @@ internal class Program
             filteredProducts.Add(product);
             totalQuantityInKg += product.QuantityInKg;
 
-            if (product.Type == ProductType.S &&
-                product.StorageTemperature.HasValue)
+            if (product is { Type: ProductType.S, StorageTemperature: not null })
             {
                 if (!minimumTemperature.HasValue ||
-                    product.StorageTemperature.Value <
-                    minimumTemperature.Value)
+                    product.StorageTemperature.Value < minimumTemperature.Value)
                 {
                     minimumTemperature = product.StorageTemperature.Value;
                 }
@@ -197,22 +189,17 @@ internal class Program
 
         PrintProducts(filteredProducts);
 
-        Console.WriteLine(
-            $"Общо количество: {totalQuantityInKg} кг.");
+        Console.WriteLine($"Общо количество: {totalQuantityInKg} кг.");
 
         if (minimumTemperature.HasValue)
         {
-            var formattedTemperature = minimumTemperature.Value
-                .ToString("F1", CultureInfo.InvariantCulture);
+            var formattedTemperature = minimumTemperature.Value.ToString("F1", CultureInfo.InvariantCulture);
 
-            Console.WriteLine(
-                $"Минимална температура на съхранение: " +
-                $"{formattedTemperature} °C");
+            Console.WriteLine($"Минимална температура на съхранение: {formattedTemperature} °C");
         }
     }
 
-    private static void SortProductsByStorageLocation(
-        List<Product> products)
+    private static void SortProductsByStorageLocation(List<Product> products)
     {
         for (var i = 0; i < products.Count - 1; i++)
         {
@@ -238,8 +225,7 @@ internal class Program
         }
     }
 
-    private static void SortSpecialProductsByEntryDate(
-        List<Product> products)
+    private static void SortSpecialProductsByEntryDate(List<Product> products)
     {
         for (var i = 0; i < products.Count - 1; i++)
         {
@@ -269,10 +255,7 @@ internal class Program
         }
     }
 
-    private static void Swap(
-        List<Product> products,
-        int firstIndex,
-        int secondIndex) =>
+    private static void Swap(List<Product> products, int firstIndex, int secondIndex) =>
         (products[firstIndex], products[secondIndex]) = (products[secondIndex], products[firstIndex]);
 
     private static void PrintProducts(List<Product> products)
@@ -290,18 +273,13 @@ internal class Program
         }
     }
 
-    private static int ReadIntInRange(
-        string message,
-        int min,
-        int max)
+    private static int ReadIntInRange(string message, int min, int max)
     {
         while (true)
         {
             var input = ReadInput(message);
 
-            var isValid = int.TryParse(
-                input,
-                out var result);
+            var isValid = int.TryParse(input, out var result);
 
             if (isValid && result >= min && result <= max)
             {
@@ -313,14 +291,10 @@ internal class Program
         }
     }
 
-    private static int ReadPositiveInt(string message)
-    {
-        return ReadIntInRange(message, 1, int.MaxValue);
-    }
+    private static int ReadPositiveInt(string message) =>
+        ReadIntInRange(message, 1, int.MaxValue);
 
-    private static string ReadStringWithMaxLength(
-        string message,
-        int maxLength)
+    private static string ReadStringWithMaxLength(string message, int maxLength)
     {
         while (true)
         {
@@ -332,8 +306,7 @@ internal class Program
                 return input;
             }
 
-            Console.WriteLine(
-                $"Въведете непразен текст с дължина до {maxLength} знака.");
+            Console.WriteLine($"Въведете непразен текст с дължина до {maxLength} знака.");
         }
     }
 
@@ -341,10 +314,9 @@ internal class Program
     {
         while (true)
         {
-            var input = ReadInput(
-                "Група стоки (G - нормално, S - специално): ");
+            var input = ReadInput("Група стоки (G - нормално, S - специално): ");
 
-            switch (input?.ToUpperInvariant())
+            switch (input.ToUpperInvariant())
             {
                 case "G":
                     return ProductType.G;
@@ -353,8 +325,7 @@ internal class Program
                     return ProductType.S;
 
                 default:
-                    Console.WriteLine(
-                        "Невалиден тип. Въведете G или S.");
+                    Console.WriteLine("Невалиден тип. Въведете G или S.");
                     break;
             }
         }
@@ -378,14 +349,11 @@ internal class Program
                 return result;
             }
 
-            Console.WriteLine(
-                "Невалидна дата. Пример: 25.03.2022");
+            Console.WriteLine("Невалидна дата. Пример: 25.03.2022");
         }
     }
 
-    private static decimal ReadDecimalWithMaxDecimalDigits(
-        string message,
-        int maxDecimalDigits)
+    private static decimal ReadDecimalWithMaxDecimalDigits(string message, int maxDecimalDigits)
     {
         while (true)
         {
@@ -400,9 +368,7 @@ internal class Program
 
             var normalizedInput = input.Replace(',', '.');
 
-            var hasValidDecimalDigits = HasValidDecimalDigits(
-                normalizedInput,
-                maxDecimalDigits);
+            var hasValidDecimalDigits = HasValidDecimalDigits(normalizedInput, maxDecimalDigits);
 
             var isValid = decimal.TryParse(
                 normalizedInput,
@@ -415,14 +381,11 @@ internal class Program
                 return result;
             }
 
-            Console.WriteLine(
-                $"Въведете реално число с до {maxDecimalDigits} знака след десетичния разделител.");
+            Console.WriteLine($"Въведете реално число с до {maxDecimalDigits} знака след десетичния разделител.");
         }
     }
 
-    private static bool HasValidDecimalDigits(
-        string input,
-        int maxDecimalDigits)
+    private static bool HasValidDecimalDigits(string input, int maxDecimalDigits)
     {
         var decimalPointIndex = input.IndexOf('.');
 
@@ -447,7 +410,7 @@ internal class Program
             var temperature = product.StorageTemperature.Value
                 .ToString("F1", CultureInfo.InvariantCulture);
 
-            result += $", tC={product.StorageTemperature}";
+            result += $", tC={temperature}";
         }
 
         return result;
