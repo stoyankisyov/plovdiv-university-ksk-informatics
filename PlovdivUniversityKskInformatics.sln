@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksk2022", "Ksk2022\Ksk2022.csproj", "{50FAB656-4526-462D-8331-69A2F144524D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksk2021", "Ksk2021\Ksk2021.csproj", "{B6CE40EF-699B-4E92-B9DF-DF073C737227}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{50FAB656-4526-462D-8331-69A2F144524D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50FAB656-4526-462D-8331-69A2F144524D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50FAB656-4526-462D-8331-69A2F144524D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6CE40EF-699B-4E92-B9DF-DF073C737227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6CE40EF-699B-4E92-B9DF-DF073C737227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6CE40EF-699B-4E92-B9DF-DF073C737227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6CE40EF-699B-4E92-B9DF-DF073C737227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
