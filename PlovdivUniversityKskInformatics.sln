@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksk2021", "Ksk2021\Ksk2021.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksk2019", "Ksk2019\Ksk2019.csproj", "{D9C9D87A-68FF-437A-A218-0EE17FFB8706}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksk2019_2", "Ksk2019_2\Ksk2019_2.csproj", "{3E8E043D-FBEA-4994-A10D-252BDB011238}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{D9C9D87A-68FF-437A-A218-0EE17FFB8706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9C9D87A-68FF-437A-A218-0EE17FFB8706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9C9D87A-68FF-437A-A218-0EE17FFB8706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E8E043D-FBEA-4994-A10D-252BDB011238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8E043D-FBEA-4994-A10D-252BDB011238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E8E043D-FBEA-4994-A10D-252BDB011238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8E043D-FBEA-4994-A10D-252BDB011238}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
